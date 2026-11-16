@@ -183,10 +183,9 @@ a { color: inherit; }
 }
 
 .concept {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  gap: 40px 48px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   padding: 64px max(var(--gutter), calc((100% - 1120px) / 2));
   border-bottom: 1px solid var(--line);
 }
@@ -273,8 +272,7 @@ code {
 .resources a:hover span:not(.sr-only) { color: var(--gold-ink); }
 
 .stage {
-  position: sticky;
-  top: 76px;
+  width: 100%;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -402,11 +400,9 @@ svg .chip-fill { fill: var(--chip); }
 
 @media (max-width: 900px) {
   .concept {
-    grid-template-columns: 1fr;
     gap: 24px;
     padding: 48px max(var(--gutter), calc((100% - 1120px) / 2));
   }
-  .stage { position: static; }
   .resources a { flex-direction: column; gap: 2px; }
   .resources a span:last-child { text-align: left; }
 }
