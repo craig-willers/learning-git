@@ -13,7 +13,8 @@
   --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
   --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --wrap: min(1120px, calc(100% - 40px));
+  --gutter: 40px;
+  --wrap: min(1120px, calc(100% - 2 * var(--gutter)));
 }
 
 * { box-sizing: border-box; }
@@ -186,7 +187,7 @@ a { color: inherit; }
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: 40px 48px;
   align-items: start;
-  padding: 64px 0;
+  padding: 64px max(var(--gutter), calc((100% - 1120px) / 2));
   border-bottom: 1px solid var(--line);
 }
 
@@ -400,7 +401,11 @@ svg .chip-fill { fill: var(--chip); }
 .colophon a { color: var(--gold-ink); }
 
 @media (max-width: 900px) {
-  .concept { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+  .concept {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 48px max(var(--gutter), calc((100% - 1120px) / 2));
+  }
   .stage { position: static; }
   .resources a { flex-direction: column; gap: 2px; }
   .resources a span:last-child { text-align: left; }
